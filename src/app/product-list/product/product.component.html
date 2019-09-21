@@ -1,0 +1,7 @@
+<section class="product">
+    <img src="assets/images/chew-toy.jpg" class="product--image">
+    <h4 color="primary">{{product.name}}</h4>
+    <p>{{product.description}}</p>
+    <p *ngIf="!isInStock" color="warn"><i>Out of stock</i></p>
+    <button mat-raised-button [disabled]="!isInStock" color="primary">Add to cart</button>
+</section>

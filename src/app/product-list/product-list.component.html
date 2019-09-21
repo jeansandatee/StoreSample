@@ -1,0 +1,11 @@
+<div fxLayout="column" class="product-list">
+    <h3>These are our products!</h3>
+    <div fxLayout="row" fxAlign="space-between center" fxLayoutGap=".5rem" *ngFor="let product of products">
+        <mat-card class="product-card">
+            <mat-card-content>
+                <app-product [product]="product"></app-product>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+

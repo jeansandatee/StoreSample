@@ -6,16 +6,16 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CartComponentComponent } from './cart-component/cart-component.component';
-import { ProductComponentComponent } from './product-list-component/product-component/product-component.component';
-import { ProductListComponentComponent } from './product-list-component/product-list-component.component';
+import { CartComponent } from './cart/cart.component';
+import { ProductComponent } from './product-list/product/product.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponentComponent,
-    ProductComponentComponent,
-    ProductListComponentComponent
+    CartComponent,
+    ProductComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

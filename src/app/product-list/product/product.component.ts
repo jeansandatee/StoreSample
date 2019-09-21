@@ -3,11 +3,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-product-component',
-  templateUrl: './product-component.component.html',
-  styleUrls: ['./product-component.component.scss']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
-export class ProductComponentComponent implements OnInit {
+export class ProductComponent implements OnInit {
 
   @Input() product: any;
   public isInStock: boolean;
