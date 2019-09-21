@@ -1,7 +1,7 @@
 .product-list {
-    width: 60%;
-}
-
-.product-card {
-    width: 200px;
+    borderblah: .25rem solid blueviolet;
+    padding: .5rem;
+    &--card{
+        width: 200px;
+    }
 }

@@ -12,24 +12,24 @@ export class ProductListComponent implements OnInit {
     numberOnHand: 0,
     name: 'Chew Toy',
     description: 'dogs love \'em',
-    image: 'assets/images/chew-toy.jpg'
+    image: '../../assets/images/chew-toy.jpg'
   }, {
     numberOnHand: 4,
     name: 'Leash',
     description: 'it holds your puppo',
-    image: 'assets/images/leash.jpg'
+    image: '../../assets/images/leash.jpg'
   }, {
     numberOnHand: 3,
     name: 'Shampoo',
     description: 'makes your doggos coat so shiny',
-    image: 'assets/images/dog-bath.jpg'
+    image: '../../assets/images/dog-bath.jpg'
   }];
   
   constructor(_sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.products.forEach(product => {
-      product.image = this._sanitizer.bypass
+      // product.image = this._sanitizer.bypass
     });
   }
 
