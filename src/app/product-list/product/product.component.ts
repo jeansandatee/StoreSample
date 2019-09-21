@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
+import { Product } from '../../store/models/product';
 
 @Component({
   selector: 'app-product',
@@ -9,14 +8,14 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ProductComponent implements OnInit {
 
-  @Input() product: any;
+  @Input() product: Product;
   public isInStock: boolean;
 
 
   constructor() { }
 
   ngOnInit() {
-    this.isInStock = this.product.numberOnHand !== 0;
+    this.isInStock = this.product.numberInStock !== 0;
   }
 
 }

@@ -1,7 +1,15 @@
 <div class="cart" fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="space-between center">
-        <h3>Your cart!</h3>
-        <mat-icon matBadge="12" matBadgeColor="accent" fxFlexAlign="center">shopping_cart</mat-icon>
+        <h3>Your cart</h3>
+        <mat-icon matBadge="{{numberOfItemsInCart$ | async}}" matBadgeColor="accent" fxFlexAlign="center">shopping_cart</mat-icon>
+    </div>
+    <p *ngIf="(numberOfItemsInCart$ | async) === 0">Your cart is empty! Go shopping ;)</p>
+    <div fxLayout="column" *ngFor="let item of itemsInCart$ | async">
+        <mat-card class="cart--item-card" fxFlex>
+            <mat-card-content>
+                <app-cart-item [item]="item"></app-cart-item>
+            </mat-card-content>
+        </mat-card>
     </div>
 </div>
 

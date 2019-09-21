@@ -6,19 +6,26 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
+import { reducer } from './store/store.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product-list/product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,13 @@ import { ProductListComponent } from './product-list/product-list.component';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule,
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('storeStore', reducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 50
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 <div fxLayout="column" class="product-list">
     <h3>These are our products!</h3>
-    <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap=".5rem" *ngFor="let product of products">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap=".5rem" *ngFor="let product of productsFromStore$ | async">
         <mat-card class="product-list--card">
             <mat-card-content>
                 <app-product [product]="product"></app-product>
