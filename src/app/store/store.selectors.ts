@@ -1,10 +1,10 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
-import { initialState, State } from '../store/store.reducer';
+import { State } from '../store/store.reducer';
 
-export interface AppState {
-    storeState: State
-}
+// export interface AppState {
+//     storeState: State
+// }
 
 export const getStoreState = createFeatureSelector<State>('storeStore');
 
@@ -13,5 +13,8 @@ export const getInventory = createSelector(getStoreState, (state: State) => stat
 
 
 export const getCart = createSelector(getStoreState, (state: State) => state.cart);
-export const numberOfItemsInCart = createSelector(getCart, cart => cart.items.reduce((acc, curr) => acc + curr.quantity, 0));
-export const itemsInCart = createSelector(getCart, cart => cart.items);
+// export const numberOfItemsInCart = createSelector(getCart, cart => cart.items.reduce((acc, curr) => acc + curr.quantity, 0));
+// export const itemsInCart = createSelector(getCart, cart => cart.items);
+
+export const numberOfItemsInCart = createSelector(getStoreState, (state: State) => state.cart.items.reduce((acc, curr) => acc + curr.quantity, 0));
+export const itemsInCart = createSelector(getStoreState, (state: State) => state.cart.items);

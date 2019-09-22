@@ -1,7 +1,7 @@
-<div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap=".5rem">
-    <img src={{item.imagePath}} fxFlexAlign="center">
-    <section fxLayout="column" fxLayoutAlign="center start">
-        <h4>{{item.name}}</h4>
+<div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap=".5rem" class="cart-item">
+    <img src={{item.imagePath}} fxFlexAlign="center" class="cart-item--img">
+    <section fxLayout="column" fxLayoutAlign="center center">
+        <h4>{{item.name}}  ({{item.quantity}})</h4>
         <p>{{item.description}}</p>
     </section>
     <button mat-icon-button matTooltip="Remove item from cart" fxFlexAlign="center"><mat-icon>delete_outline</mat-icon></button>

@@ -9,7 +9,7 @@ export interface State {
 
 export const initialState: State = {
     inventory: [{
-        numberInStock: 0,
+        numberInStock: 6,
         name: 'Chew Toy',
         description: 'dogs love \'em',
         imagePath: 'assets/images/chew-toy.jpg'
@@ -32,23 +32,28 @@ export const initialState: State = {
 export function reducer(state = initialState, action: StoreActionsUnion): State {
     switch (action.type) {
         case StoreActionTypes.PRODUCT_ADDED_TO_CART:
+            const stateCopy = {...state};
             // find item in the cart that matches the incoming product if applicable
-            let item = state.cart.items.find(item => item.name === action.product.name);
+            let item = stateCopy.cart.items.find(item => item.name === action.product.name);
             if (item) {
                 item.quantity += 1;
             } else {
-                state.cart.items.push({
+                stateCopy.cart.items.push({
                     quantity: 1,
                     name: action.product.name,
-                    description: action.product.description
+                    description: action.product.description,
+                    imagePath: action.product.imagePath
                 });
             }
 
             // edit the numer of products available in the inventory
-            let itemAdded = state.inventory.find(product => product.name === action.product.name);
+            let itemAdded = stateCopy.inventory.find(product => product.name === action.product.name);
             itemAdded.numberInStock -= 1;
 
-            return state;
+            return {
+                ...stateCopy,
+
+            };
 
         case StoreActionTypes.PRODUCT_REMOVED_FROM_CART:
             // find the item in the cart that matches the product that's being removed
