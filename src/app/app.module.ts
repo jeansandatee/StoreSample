@@ -37,8 +37,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     MatDividerModule,
     MatIconModule,
     MatTooltipModule,
-    StoreModule.forRoot({}),
-    StoreModule.forFeature('storeStore', reducer),
+    StoreModule.forRoot({ 'storeStore': reducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 50
     })
