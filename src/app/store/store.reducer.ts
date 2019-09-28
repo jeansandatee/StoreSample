@@ -32,13 +32,13 @@ export const initialState: State = {
 export function reducer(state = initialState, action: StoreActionsUnion): State {
     switch (action.type) {
         case StoreActionTypes.PRODUCT_ADDED_TO_CART:
-            const stateCopy = {...state};
+            // const stateCopy = {...state};
             // find item in the cart that matches the incoming product if applicable
-            let item = stateCopy.cart.items.find(item => item.name === action.product.name);
+            let item = state.cart.items.find(item => item.name === action.product.name);
             if (item) {
                 item.quantity += 1;
             } else {
-                stateCopy.cart.items.push({
+                state.cart.items.push({
                     quantity: 1,
                     name: action.product.name,
                     description: action.product.description,
@@ -47,13 +47,10 @@ export function reducer(state = initialState, action: StoreActionsUnion): State 
             }
 
             // edit the numer of products available in the inventory
-            let itemAdded = stateCopy.inventory.find(product => product.name === action.product.name);
+            let itemAdded = state.inventory.find(product => product.name === action.product.name);
             itemAdded.numberInStock -= 1;
 
-            return {
-                ...stateCopy,
-
-            };
+            return { ...state };
 
         case StoreActionTypes.PRODUCT_REMOVED_FROM_CART:
             // find the item in the cart that matches the product that's being removed
@@ -62,9 +59,9 @@ export function reducer(state = initialState, action: StoreActionsUnion): State 
 
             // edit the numer of products available in the inventory
             let itemRemoved = state.inventory.find(product => product.name === action.item.name);
-            itemRemoved.numberInStock += 1;
+            itemRemoved.numberInStock += action.item.quantity;
 
-            return state;
+            return { ...state };
     }
     return state;
 };

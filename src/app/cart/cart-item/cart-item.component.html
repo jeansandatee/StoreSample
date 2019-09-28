@@ -4,6 +4,6 @@
         <h4>{{item.name}}  ({{item.quantity}})</h4>
         <p>{{item.description}}</p>
     </section>
-    <button mat-icon-button matTooltip="Remove item from cart" fxFlexAlign="center"><mat-icon>delete_outline</mat-icon></button>
+    <button mat-icon-button matTooltip="Remove item from cart" fxFlexAlign="center" (click)="removeItemFromCart(item)"><mat-icon>delete_outline</mat-icon></button>
 </div>
 

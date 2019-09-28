@@ -13,9 +13,6 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class CartComponent implements OnInit, OnDestroy {
 
-  // public numberOfItemsInCart$: Observable<number> = this._store.pipe(select(numberOfItemsInCart));
-  // public itemsInCart$: Observable<Item[]> = this._store.pipe(select(itemsInCart));
-
   public numberOfItemsInCart: number = 0;
   public itemsInCart: Item[] = [];
   private _ngUnsubscribe$: Subject<void> = new Subject<void>();
